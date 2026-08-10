@@ -1,0 +1,246 @@
+<?xml version="1.0" ?>
+<sdf version="1.10">
+
+  <world name="soft_exo_world">
+
+    <gravity>0 0 -9.8</gravity>
+
+    <!-- Ánh sáng -->
+    <light type="directional" name="sun">
+      <cast_shadows>true</cast_shadows>
+      <pose>0 0 10 0 0 0</pose>
+      <diffuse>0.8 0.8 0.8 1</diffuse>
+      <specular>0.2 0.2 0.2 1</specular>
+      <direction>-0.5 0.1 -0.9</direction>
+    </light>
+
+    <!-- Mặt đất -->
+    <model name="ground">
+      <static>true</static>
+
+      <link name="ground_link">
+
+        <collision name="collision">
+          <geometry>
+            <plane>
+              <normal>0 0 1</normal>
+              <size>20 20</size>
+            </plane>
+          </geometry>
+        </collision>
+
+        <visual name="visual">
+          <geometry>
+            <plane>
+              <normal>0 0 1</normal>
+              <size>20 20</size>
+            </plane>
+          </geometry>
+
+          <material>
+            <diffuse>0.7 0.7 0.7 1</diffuse>
+          </material>
+        </visual>
+
+      </link>
+    </model>
+
+
+    <!-- SOFT EXO -->
+    <model name="soft_exo">
+
+      <!-- Tạm thời khóa model để xem hình -->
+      <static>true</static>
+
+      <pose>0 0 0.05 0 0 0</pose>
+
+      <link name="exo_frame">
+
+        <!-- Thanh hông -->
+        <visual name="pelvis">
+          <pose>0 0 1.35 0 0 0</pose>
+
+          <geometry>
+            <box>
+              <size>0.18 0.55 0.12</size>
+            </box>
+          </geometry>
+
+          <material>
+            <diffuse>0.15 0.15 0.15 1</diffuse>
+          </material>
+        </visual>
+
+
+        <!-- ĐÙI TRÁI -->
+        <visual name="left_thigh">
+          <pose>0 0.17 1.02 0 0 0</pose>
+
+          <geometry>
+            <cylinder>
+              <radius>0.045</radius>
+              <length>0.55</length>
+            </cylinder>
+          </geometry>
+
+          <material>
+            <diffuse>0.25 0.25 0.27 1</diffuse>
+          </material>
+        </visual>
+
+
+        <!-- ĐÙI PHẢI -->
+        <visual name="right_thigh">
+          <pose>0 -0.17 1.02 0 0 0</pose>
+
+          <geometry>
+            <cylinder>
+              <radius>0.045</radius>
+              <length>0.55</length>
+            </cylinder>
+          </geometry>
+
+          <material>
+            <diffuse>0.25 0.25 0.27 1</diffuse>
+          </material>
+        </visual>
+
+
+        <!-- GỐI TRÁI -->
+        <visual name="left_knee">
+          <pose>0 0.17 0.72 0 0 0</pose>
+
+          <geometry>
+            <sphere>
+              <radius>0.07</radius>
+            </sphere>
+          </geometry>
+
+          <material>
+            <diffuse>0.05 0.05 0.05 1</diffuse>
+          </material>
+        </visual>
+
+
+        <!-- GỐI PHẢI -->
+        <visual name="right_knee">
+          <pose>0 -0.17 0.72 0 0 0</pose>
+
+          <geometry>
+            <sphere>
+              <radius>0.07</radius>
+            </sphere>
+          </geometry>
+
+          <material>
+            <diffuse>0.05 0.05 0.05 1</diffuse>
+          </material>
+        </visual>
+
+
+        <!-- CẲNG CHÂN TRÁI -->
+        <visual name="left_shin">
+          <pose>0 0.17 0.43 0 0 0</pose>
+
+          <geometry>
+            <cylinder>
+              <radius>0.04</radius>
+              <length>0.5</length>
+            </cylinder>
+          </geometry>
+
+          <material>
+            <diffuse>0.25 0.25 0.27 1</diffuse>
+          </material>
+        </visual>
+
+
+        <!-- CẲNG CHÂN PHẢI -->
+        <visual name="right_shin">
+          <pose>0 -0.17 0.43 0 0 0</pose>
+
+          <geometry>
+            <cylinder>
+              <radius>0.04</radius>
+              <length>0.5</length>
+            </cylinder>
+          </geometry>
+
+          <material>
+            <diffuse>0.25 0.25 0.27 1</diffuse>
+          </material>
+        </visual>
+
+
+        <!-- BÀN CHÂN TRÁI -->
+        <visual name="left_foot">
+          <pose>0.1 0.17 0.13 0 0 0</pose>
+
+          <geometry>
+            <box>
+              <size>0.35 0.15 0.1</size>
+            </box>
+          </geometry>
+
+          <material>
+            <diffuse>0.05 0.2 0.8 1</diffuse>
+          </material>
+        </visual>
+
+
+        <!-- BÀN CHÂN PHẢI -->
+        <visual name="right_foot">
+          <pose>0.1 -0.17 0.13 0 0 0</pose>
+
+          <geometry>
+            <box>
+              <size>0.35 0.15 0.1</size>
+            </box>
+          </geometry>
+
+          <material>
+            <diffuse>0.05 0.2 0.8 1</diffuse>
+          </material>
+        </visual>
+
+
+        <!-- THANH TRỢ LỰC TRÁI -->
+        <visual name="left_exo">
+          <pose>-0.08 0.17 0.72 0 0 0</pose>
+
+          <geometry>
+            <cylinder>
+              <radius>0.025</radius>
+              <length>1.05</length>
+            </cylinder>
+          </geometry>
+
+          <material>
+            <diffuse>0.05 0.2 0.9 1</diffuse>
+          </material>
+        </visual>
+
+
+        <!-- THANH TRỢ LỰC PHẢI -->
+        <visual name="right_exo">
+          <pose>-0.08 -0.17 0.72 0 0 0</pose>
+
+          <geometry>
+            <cylinder>
+              <radius>0.025</radius>
+              <length>1.05</length>
+            </cylinder>
+          </geometry>
+
+          <material>
+            <diffuse>0.05 0.2 0.9 1</diffuse>
+          </material>
+        </visual>
+
+      </link>
+
+    </model>
+
+  </world>
+
+</sdf>
